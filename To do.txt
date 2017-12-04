@@ -3,3 +3,9 @@ git commands
 html and css 
 3 chapters of Javascript
 Medium
+
+##########################
+array methods
+-----------------
+concat, indexof, length, foreach, push,pop,reduce,slice,splice
+
