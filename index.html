@@ -7,8 +7,10 @@
             var username = prompt('What is your name?', 'Enter your name here');
             if (username) {
                 alert('Hi ' + username + ',Good to see you');
-              var element = document.getElementById("bhavya");
+              var element = document.getElementById("myElement1");
               element.innerText=username;
+              var elemetCollections = document.getElementsByClassName("nameClass");
+              elemetCollections[0].innerText = username + 'is here to see you';
             }
         }
     </script>
@@ -20,10 +22,18 @@
         <img id="Krithika" src="https://lh3.googleusercontent.com/-JCqHTAXxDgw/AAAAAAAAAAI/AAAAAAAAAAA/AFiYof0O7ZG9pSZObA5MJ38w7tVi9aQR6w/s64-c-mo/photo.jpg"
             alt="krithi" onclick="fetchName()" />
     </div>
-    <div id='bhavya'>
+    <div id='myElement1'>
         See your name here
     </div>
-
+    <div class='nameClass'>
+        See your name here
+    </div>    
+    <div id='myElement3' class='nameClass'>
+        See your name here
+    </div>    
+    <div id='myElement4' class='nameClass' >
+        See your name here
+    </div>
 </body>
 
 </html>
