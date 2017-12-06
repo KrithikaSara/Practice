@@ -2,13 +2,19 @@
 
 <head>
     <title> Myself </title>
+   
 </head>
 
-<body>
+<body onload="alert('I am Krithika');">
     <div style="margin-top:100px; text-align:center">
-        <img id="Krithika" src="https://lh3.googleusercontent.com/-JCqHTAXxDgw/AAAAAAAAAAI/AAAAAAAAAAA/AFiYof0O7ZG9pSZObA5MJ38w7tVi9aQR6w/s64-c-mo/photo.jpg" alt="krithi"/>
-        hello how are you
+        <img id="Krithika" src="https://lh3.googleusercontent.com/-JCqHTAXxDgw/AAAAAAAAAAI/AAAAAAAAAAA/AFiYof0O7ZG9pSZObA5MJ38w7tVi9aQR6w/s64-c-mo/photo.jpg"
+            alt="krithi" onclick="fetchName();" />
     </div>
+    <script type='text/javascript'>
+        function fecthName() {
+var username=prompt('What is your name?','Enter your name here');
+        }
+    </script>
 </body>
 
 </html>
