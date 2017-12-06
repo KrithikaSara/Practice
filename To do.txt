@@ -9,3 +9,6 @@ array methods
 -----------------
 concat, indexof, length, foreach, push,pop,reduce,slice,splice
 
+6th-----
+
+html DOM-Document Object Model
