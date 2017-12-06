@@ -7,10 +7,12 @@
             var username = prompt('What is your name?', 'Enter your name here');
             if (username) {
                 alert('Hi ' + username + ',Good to see you');
-              var element = document.getElementById("myElement1");
-              element.innerText=username;
-              var elemetCollections = document.getElementsByClassName("nameClass");
-              elemetCollections[0].innerText = username + 'is here to see you';
+                var element = document.getElementById("myElement1");
+                element.innerText = username;
+                var elemetCollections = document.getElementsByClassName("nameClass");
+                for (var i = 0; i < elemetCollections.length; i++) {
+                    elemetCollections[i].innerText = username + 'is here to see you';
+                }
             }
         }
     </script>
@@ -27,11 +29,11 @@
     </div>
     <div class='nameClass'>
         See your name here
-    </div>    
+    </div>
     <div id='myElement3' class='nameClass'>
         See your name here
-    </div>    
-    <div id='myElement4' class='nameClass' >
+    </div>
+    <div id='myElement4' class='nameClass'>
         See your name here
     </div>
 </body>
