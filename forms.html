@@ -4,21 +4,61 @@
         <title>
             Bannerocity
         </title>
+        <style>
+            .help {
+                color: red;
+                font: arial;
+            }
+        </style>
+        <script>
+            function validateNonEmpty(inputField, helpText){
+if(inputField.value.length==0){
+    if(helpText!= null)
+    helpText.innerHTML="Please enter a value.";
+    return false;
+}
+else
+{
+    if(helpText!=null)
+    helpText.innerHTML="";
+    return true;
+}
+     
+            }
+        </script>
     </head>
     <body>
     <h1 style="text-align:Center;">BANNEROCITY</h1>   
 <Form style="margin: 0px 150px">
-    Enter the banner message:<input id="bannerMessage" type="text" name="bannerMessage">
+    Enter the banner message:<input id="bannerMessage" type="text" name="bannerMessage" 
+    onblur="validateNonEmpty(this, document.getElementById('banner_message_help'))">
+    <span id="banner_message_help"  class="help">
+    </span>
     <br>
-    Enter ZIP code of the location:<input id="zipCode" type="number" name="zipCode" size="6">
+    Enter ZIP code of the location:<input id="zipCode" type="number" name="zipCode" size="6" 
+    onblur="validateNonEmpty(this, document.getElementById('zipcode_help'))">
+    <span id="zipcode_help"  class="help">
+    </span>
     <br>
-    Enter the date for the message to be displayed:<input id="date" type="date" name="date">
+    Enter the date for the message to be displayed:<input id="date" type="date" name="date" 
+    onblur="validateNonEmpty(this, document.getElementById('date_help'))">
+    <span id="date_help"  class="help">
+    </span>
     <br>
-    Enter your name:<input id="contactPerson" type="text" name="contactPerson">
+    Enter your name:<input id="contactPerson" type="text" name="contactPerson" 
+    onblur="validateNonEmpty(this, document.getElementById('name_help'))">
+    <span id="name_help"  class="help">
+    </span>
     <br>
-    Enter your phone number:<input id="contactNumber" type="number" name="contactNumber"  size="10">
+    Enter your phone number:<input id="contactNumber" type="number" name="contactNumber"  size="10" 
+    onblur="validateNonEmpty(this, document.getElementById('phoneno_help'))">
+    <span id="phoneno_help"  class="help">
+    </span>
     <br>
-    Enter your email address:<input id="emailId" type="text" name="emailId">
+    Enter your email address:<input id="emailId" type="text" name="emailId" 
+    onblur="validateNonEmpty(this, document.getElementById('mail_help'))">
+    <span id="mail_help"  class="help">
+    </span>
 </Form>
     </body>
 </html>
