@@ -1,1 +1,45 @@
+<html>
+	<head>
+		<style>
+			.container{
+					margin:10px 10px;
+					text-align:center;
+					display: flex;
+					align-items: center;
+					  }
+			.properties{
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					align-items: center;
+					padding:10px;
+					height: 550px;
+					width: 1300px;
+					background-color: grey;
+					   }
+			.text{
+				text-align: center;
+				width: 100%;
+			}
+</style>
+</head>
 
+<body>
+
+<div class="properties">
+<div class="container" style="height: 50px;width: 100px;background-color: red;">
+	<p class="text">1</p>
+</div>
+<div class="container" style="height: 100px;width: 200px;background-color: orange;">
+	<p class="text">2</p>
+</div>
+<div class="container" style="height: 200px;width: 200px;background-color: green;">
+	<p class="text">3</p>
+</div>
+<div class="container" style="height: 150px;width: 400px;background-color: lightblue;">
+	<p class="text">4</p>
+</div>
+</div>
+</body>
+
+</html>
