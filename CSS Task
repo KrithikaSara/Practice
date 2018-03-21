@@ -1,0 +1,43 @@
+<html>
+<head>
+	<title>
+		CSS Task
+	</title>
+	<style type="text/css">
+	.border{
+		border: 1px solid black;
+		margin: 10px 10px;
+	}
+
+	#mainBox{
+		margin: 10px 10px;
+		height: 600px;
+		width: 1300px;
+		background-color: grey;
+		display: flex;
+		flex-direction: row;
+	}
+		
+	</style>
+</head>
+<body>
+	<div class="border" id="mainBox">
+		<div class="border" style="height: 100%">
+		
+		</div>
+		<div class="border" style="height: 100%">
+		
+		</div>
+		<div class="border" style="height: 100%">
+			<div class="border">
+		
+			</div>
+			<div class="border">
+		
+			</div>
+		</div>
+		
+	</div>
+
+</body>
+</html>
