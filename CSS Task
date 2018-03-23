@@ -1,54 +1,95 @@
+<!DOCTYPE html>
 <html>
 <head>
-	<title>
-		CSS Task
-	</title>
+	<title>CSS_Practice</title>
 	<style type="text/css">
-	.border{
-		border: 1px solid black;
-		margin: 10px 10px;
-	}
+		#mainBox{
+			margin: 10px;
+			border: 1px solid black;
+			padding: 10px 5px;
+			background: lightgrey;
+			display: flex;
+			height: 100%;
 
-	#mainBox{
-		margin: 10px 10px;
-		height: 600px;
-		width: 1300px;
-		background-color: grey;
-		display: flex;
-		flex-direction: row;
-	}
-		
+		}
+		.innerBoxes{
+			margin:0 5px;
+			border: 1px solid black;
+			padding: 10px 10px;
+			display: flex;
+			height: 500px;
+			width: 200px;
+			align-items: center;
+			
+
+		}
+		.innerIHBoxes{
+			margin:0 5px;
+			border: none;
+			padding: 0px 10px;
+			display: flex;
+			height: 520px;
+			align-items: center;
+			width: 850px;
+			flex-direction: column;
+
+		}
+		.horizontalboxes
+		{
+			border: 1px solid black;
+			padding: 10px 10px;
+			width: 100%;
+			height: 50%;
+			display: flex;
+			align-items: center;
+		}
+		.textboxes{
+			border: 1px solid black;
+			width: 100%;
+			height: 50px;
+
+		}
+		.verticalTextBoxes
+		{
+			border: 1px solid black;
+			height: 100%;
+			width: 50px;
+			display: flex;
+			align-items: center;
+			justify-content: center;	
+		}
+		.text{
+			text-align: center;
+		}
 	</style>
 </head>
 <body>
-	<div class="border" id="mainBox">
-		<div class="border" style="height: 95%;width: 250px;display: flex;align-items: center;">
-			<div class="border" style="height: 50px;width: 100%;display: flex;justify-content: center;">
-				<p>1</p>
-			</div>
+<div id="mainBox">
+	<div class="innerBoxes" >
+		<div class="textboxes">
+			<p class="text">1</p>
 		</div>
-		<div class="border" style="height: 95%;width: 250px;display: flex;flex-direction: column;justify-content:space-around;align-items: center; ">
-			<div class="border" style="height: 50px;width: 90%;display: flex;justify-content: center;">
-				<p>2</p>
-			</div>
-			<div class="border" style="height: 50px;width: 90%;display: flex;justify-content: center;">
-				<p>3</p>
-			</div>
-		</div>
-		<div  style="height: 95%;width: 800px;">
-			<div class="border" style="height: 50%;width:95%;display: flex;align-items: center;">
-					<div class="border" style="height: 50px;width: 100%;display: flex;justify-content: center;">
-						<p>4</p>
-					</div>
-			</div>
-			<div class="border" style="height: 50%;width:95%;display: flex;align-items: center;justify-content: center;">
-					<div class="border" style="height: 90%;width: 50px;display: flex;flex-direction: column;justify-content: center;">
-						<p style="text-align: center;">5</p>
-					</div>
-			</div>
-		</div>
-		
 	</div>
-
+	<div class="innerBoxes" style="flex-direction: column; justify-content: space-around;">
+		<div class="textboxes">
+			<p class="text">2</p>
+		</div>
+		<div class="textboxes">
+			<p class="text">3</p>
+		</div>
+	</div>
+	<div class="innerIHBoxes">
+		<div class="horizontalboxes" style="margin-bottom: 5px;">
+			<div class="textboxes">
+				<p class="text">4</p>
+		    </div>
+		</div>
+		<div class="horizontalboxes" style="margin-top: 5px; justify-content: center;">
+			<div class="verticalTextBoxes">
+				<p>5</p>
+		    </div>
+		</div>
+	</div>
+</div>
 </body>
 </html>
