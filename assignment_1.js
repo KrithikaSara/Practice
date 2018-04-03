@@ -10,8 +10,8 @@ var PlayBoarrd  = function (/*could take some base config as param TODO*/) {
 		rows: 5,
 		cols: 5,
 		coinPosition:[3,3],
-		cellWidth:20,
-		cellHeight:20
+		mainBoxHeight: document.getElementsByClassName("mainBox")[0].clientHeight,
+		mainBoxWidth: document.getElementsByClassName("mainBox")[0].clienttWidth
 	}
 	
 	//local(private) functions that are available within the calss
@@ -24,28 +24,64 @@ var PlayBoarrd  = function (/*could take some base config as param TODO*/) {
 		return  element;
 	}
 
-	function buildBoard(config){
-		var root = config.container;
+	function buildBoard(param1){
+		var root = param1.container;
 		var cell;
 
-		for(var i=0;i<config.rows;i++){
-			for(var i=0;i<config.cols;i++){
-				cell = buildCell(config.cellWidth,config.cellHeight);
+		for(var i=0;i<param1.rows;i++){
+			for(var j=0;j<param1.cols;j++){
+				var newWidth = param1.mainBoxWidth/param1.cols;
+				var newHeight = param1.mainBoxHeight/param1.rows;
+				cell = buildCell(newWidth,newHeight);
 				root.appendChild(cell);
 			}
 		}
 	}
 
-	function init(config) {
-		if(!config || !config.container){
+	function init(param) {
+		if(!param || !param.container){
 			throw "container is mandatory config for play playBoarrd";
 		}
 		//merge both configs
 		//copy DefaultConfig values for the missing keys in 'config'
-		this.config = Object.assign(config , DefaultConfig)
+		this.config = Object.assign({},param, DefaultConfig)
 		buildBoard(this.config);
 	}
 	return {
 		init : init
 	}
 }
+
+var Circle = function(param2) {
+
+	this.circleconfig = param2;
+	
+	var circleElement = document.createElement('div');
+    element.style.color = this.circleElement.color;
+    element.style.height = this.circleElement.radius * 2;
+	element.style.width = this.circleElement.radius * 2;
+    element.style.border-radius = 50%;
+    element.className= 'miniCircle';
+    return element;
+}
+
+var board= new PlayBoarrd();
+board.init({
+	container: document.getElementsByClassName("mainBox")[0],
+	coin: new Circle({
+		radius: 5,
+		colour: "#D32F2F";
+	  })
+	});
+
+
+/*var circle = function (somethingStupidConfigAsParam){
+
+this.objectScopeConfig = somethingStupidConfigAsParam;
+
+var element = document.createElement('div');
+element.style.color = this.objectScopeConfig.colour
+//find how to make a div into circle in google
+element.className = 'miniCircle';
+return element;
+}*/
