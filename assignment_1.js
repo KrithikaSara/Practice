@@ -109,3 +109,34 @@ element.style.color = this.objectScopeConfig.colour
 element.className = 'miniCircle';
 return element;
 }*/
+function test(){
+			var variable1 = 'one';
+		function go1(){
+
+			var variable2 = 'two';
+			var variable3 = 'three';
+
+			function go2(){
+				var variable4 = 'four';
+				console.log(variable1);
+				console.log(variable2);
+			}
+			function go3(){
+				var variable8 = "eight";
+				console.log(variable3);
+				go2()
+				go4()
+				function go4(){
+					var variable5 = "five";
+					go2()
+				}
+			}
+
+			go2()
+			go3()
+
+		}
+
+		go1()
+		go2()
+}
