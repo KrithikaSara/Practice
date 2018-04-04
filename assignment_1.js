@@ -11,7 +11,7 @@ var PlayBoarrd  = function (/*could take some base config as param TODO*/) {
 		cols: 5,
 		coinPosition:[3,3],
 		mainBoxHeight: document.getElementsByClassName("mainBox")[0].clientHeight,
-		mainBoxWidth: document.getElementsByClassName("mainBox")[0].clienttWidth
+		mainBoxWidth: document.getElementsByClassName("mainBox")[0].clientWidth
 	}
 	
 	//local(private) functions that are available within the calss
@@ -22,6 +22,17 @@ var PlayBoarrd  = function (/*could take some base config as param TODO*/) {
 		element.style.height = `${height}px`;
 		element.className = 'miniBoxes';
 		return  element;
+	}
+
+	function positionPiece(x,y){
+			var rows = Object.assign({},DefaultConfig);
+			var movingPosition = rows*(x-1)+y;
+			return movingPosition;
+	}
+
+	function buildPiece(element,container){
+		var defaultPosition = container.childNodes[13];
+		defaultPosition.appendChild(element);
 	}
 
 	function buildBoard(param1){
@@ -46,7 +57,14 @@ var PlayBoarrd  = function (/*could take some base config as param TODO*/) {
 		//copy DefaultConfig values for the missing keys in 'config'
 		this.config = Object.assign({},param, DefaultConfig)
 		buildBoard(this.config);
-	}
+		buildPiece(this.config.coin,this.config.container);
+	} 
+
+	/*function start(param3){
+		var startConfig = Object.assign ({},DefaultConfig)
+		var findMiddleCell = Math.ceil((startConfig.rows*startConfig.columns)/2);
+		
+	}*/
 	return {
 		init : init
 	}
@@ -57,20 +75,21 @@ var Circle = function(param2) {
 	this.circleconfig = param2;
 	
 	var circleElement = document.createElement('div');
-    element.style.color = this.circleElement.color;
-    element.style.height = this.circleElement.radius * 2;
-	element.style.width = this.circleElement.radius * 2;
-    element.style.border-radius = 50%;
-    element.className= 'miniCircle';
-    return element;
+
+    circleElement.style.borderColor = this.circleconfig.color;
+    circleElement.style.height = this.circleconfig.radius * 2;
+	circleElement.style.width = this.circleconfig.radius * 2;
+    circleElement.style.borderRadius = "50%";
+    circleElement.className= 'circle';
+    return circleElement;
 }
 
 var board= new PlayBoarrd();
 board.init({
 	container: document.getElementsByClassName("mainBox")[0],
 	coin: new Circle({
-		radius: 5,
-		colour: "#D32F2F";
+		radius: 20,
+		colour: "#D32F2F"
 	  })
 	});
 

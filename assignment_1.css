@@ -7,8 +7,6 @@
 
 .miniBoxes {
     float: left;
-    width: 80px;
-    height: 80px;
     background-color: #ffff;
     font-size:50px;
     text-align:center;
@@ -17,11 +15,10 @@
     align-items: center;
     vertical-align:middle;
     border: 1px solid black;
+    box-sizing: border-box;
 }
 
 .circle{
-    border: 1px solid #ffff;
-    height: 50%;
-    width: 50%;
-    border-radius: 20px;
+    border: 1px solid #D32F2F;
+    background-color: #D32F2F;
 }
