@@ -25,14 +25,19 @@ var PlayBoarrd  = function (/*could take some base config as param TODO*/) {
 	}
 
 	function positionPiece(x,y){
-			var rows = Object.assign({},DefaultConfig);
-			var movingPosition = rows*(x-1)+y;
-			return movingPosition;
+		//1 find the existing coin position
+		//2 then remove it
+		//2a if you dont find the coin, then place it in default position
+		//3 find the new coordinates
+		//4 place the coin in new position
+	
+			return DefaultConfig.rows*(x-1)+y;
 	}
 
-	function buildPiece(element,container){
-		var defaultPosition = container.childNodes[13];
-		defaultPosition.appendChild(element);
+	function buildPiece(){
+		positionPiece.apply(this,DefaultConfig.coinPosition)
+	//	var defaultPosition = container.childNodes[13];
+	//	defaultPosition.appendChild(element);
 	}
 
 	function buildBoard(param1){
@@ -57,7 +62,7 @@ var PlayBoarrd  = function (/*could take some base config as param TODO*/) {
 		//copy DefaultConfig values for the missing keys in 'config'
 		this.config = Object.assign({},param, DefaultConfig)
 		buildBoard(this.config);
-		buildPiece(this.config.coin,this.config.container);
+		buildPiece.apply(this);
 	} 
 
 	/*function start(param3){
