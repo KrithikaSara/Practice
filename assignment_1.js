@@ -27,26 +27,15 @@ var PlayBoarrd  = function (/*could take some base config as param TODO*/) {
     function positionPiece(x,y){
 
         var newPosition = DefaultConfig.rows*(x-1)+y;
+        var findCircle = this.config.container.getElementsByClassName("circle")[0];
         
-        
-        if (child){
-            
-
-            this.config.container.childNodes[newPosition].appendChild(this.config.coin);
+        if (findCircle){
+            var parent = findCircle.parentNode;
+            parent.removeChild(findCircle);
         }  
-        else{
-            this.config.container.childNodes[newPosition].appendChild(this.config.coin);
-            var child = document.getElementsByClassName("circle")[0]
-            var parent = child.parentNode;
-        } 
-        //var newPosition = DefaultConfig.rows*(x-1)+y;
-        //this.config.container.childNodes[newPosition].appendChild(this.config.coin);
-        //1 if you dont find the coin, then place it in default position
-        //find the existing coin position
-        //2 then remove it
-        //2a 
-        //3 find the new coordinates
-        //4 place the coin in new position
+        
+        this.config.container.childNodes[newPosition].appendChild(this.config.coin);
+        
         }
         
             
