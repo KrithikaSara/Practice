@@ -16,6 +16,9 @@ var PlayBoarrd  = function (/*could take some base config as param TODO*/) {
     
     //local(private) functions that are available within the calss
     //but not accessed via 'this' scope
+
+
+
     function buildCell(width,height) {
         var element = document.createElement('div');
         element.style.width = `${width}px`;
@@ -36,15 +39,12 @@ var PlayBoarrd  = function (/*could take some base config as param TODO*/) {
         
         this.config.container.childNodes[newPosition].appendChild(this.config.coin);
         
-        }
-        
-            
+        }       
 
     function buildPiece(){
         positionPiece.apply(this,DefaultConfig.coinPosition)
-    //  var defaultPosition = container.childNodes[13];
-    //  defaultPosition.appendChild(element);
     }
+
 
     function buildBoard(param1){
         var root = param1.container;
@@ -66,7 +66,9 @@ var PlayBoarrd  = function (/*could take some base config as param TODO*/) {
         }
         //merge both configs
         //copy DefaultConfig values for the missing keys in 'config'
-        this.config = Object.assign({},param, DefaultConfig)
+        this.config = Object.assign({},param, DefaultConfig);
+        //this.config.container.mainBoxHeight = this.config.container.getElementsByClassName("mainBox")[0].clientHeight;
+        //this.config.container.mainBoxWidth= this.config.container.getElementsByClassName("mainBox")[0].clientWidth;
         buildBoard(this.config);
         buildPiece.apply(this);
     } 
