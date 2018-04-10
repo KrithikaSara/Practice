@@ -10,8 +10,8 @@ var PlayBoarrd  = function (/*could take some base config as param TODO*/) {
         rows: 5,
         cols: 5,
         coinPosition:[3,3],
-        mainBoxHeight: document.getElementsByClassName("mainBox")[0].clientHeight,
-        mainBoxWidth: document.getElementsByClassName("mainBox")[0].clientWidth
+        mainBoxHeight: null,//document.getElementsByClassName("mainBox")[0].clientHeight,
+        mainBoxWidth: null //document.getElementsByClassName("mainBox")[0].clientWidth
     }
     
     //local(private) functions that are available within the calss
@@ -39,7 +39,43 @@ var PlayBoarrd  = function (/*could take some base config as param TODO*/) {
         
         this.config.container.childNodes[newPosition].appendChild(this.config.coin);
         
-        }       
+    } 
+
+
+    function findCircle1(){
+        var findCircle = this.config.container.getElementsByClassName("circle")[0];
+        var parent = findCircle.parentNode;
+        var index = Array.prototype.indexOf.call(this.config.container.children, parent);
+        return index;
+    }
+
+    function up(){
+
+       var position = findCircle1.apply(this);
+       var x = Math.floor(position/DefaultConfig.rows);
+       var y = (position%DefaultConfig.rows)+1;
+       positionPiece.call(this,x,y);
+    }
+
+    function down(){
+        var position = findCircle1.apply(this);
+       var x = Math.ceil(position/DefaultConfig.rows);
+       var y = (position%DefaultConfig.rows)+1;
+        positionPiece.call(this,x,y);
+    }
+    function left(){
+        var position = findCircle1.apply(this);
+       var x = Math.ceil(position/DefaultConfig.rows);
+       var y = (position%DefaultConfig.rows);
+        positionPiece.call(this,x,y);
+    }
+    function right(){
+        var position = findCircle1.apply(this);
+       var x = Math.ceil(position/DefaultConfig.rows);
+       var y = (position%DefaultConfig.rows)+2;
+        positionPiece.call(this,x,y);
+    }
+
 
     function buildPiece(){
         positionPiece.apply(this,DefaultConfig.coinPosition)
@@ -67,14 +103,18 @@ var PlayBoarrd  = function (/*could take some base config as param TODO*/) {
         //merge both configs
         //copy DefaultConfig values for the missing keys in 'config'
         this.config = Object.assign({},param, DefaultConfig);
-        //this.config.container.mainBoxHeight = this.config.container.getElementsByClassName("mainBox")[0].clientHeight;
-        //this.config.container.mainBoxWidth= this.config.container.getElementsByClassName("mainBox")[0].clientWidth;
+        this.config.mainBoxHeight = this.config.container.clientHeight;
+        this.config.mainBoxWidth= this.config.container.clientWidth;
         buildBoard(this.config);
         buildPiece.apply(this);
     } 
 
     return {
-        init : init
+        init : init,
+        up : up,
+        down: down,
+        left: left,
+        right: right
     }
 }
 
