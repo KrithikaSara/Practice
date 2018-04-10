@@ -59,7 +59,7 @@ var PlayBoarrd  = function (/*could take some base config as param TODO*/) {
 
     function down(){
         var position = findCircle1.apply(this);
-       var x = Math.ceil(position/DefaultConfig.rows);
+       var x = Math.ceil(position/DefaultConfig.rows)+1;
        var y = (position%DefaultConfig.rows)+1;
         positionPiece.call(this,x,y);
     }
