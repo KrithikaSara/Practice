@@ -10,8 +10,8 @@ var PlayBoarrd  = function (/*could take some base config as param TODO*/) {
         rows: 5,
         cols: 5,
         coinPosition:[3,3],
-        mainBoxHeight: null,//document.getElementsByClassName("mainBox")[0].clientHeight,
-        mainBoxWidth: null //document.getElementsByClassName("mainBox")[0].clientWidth
+        mainBoxHeight: null,
+        mainBoxWidth: null 
     }
     
     //local(private) functions that are available within the calss
@@ -54,25 +54,41 @@ var PlayBoarrd  = function (/*could take some base config as param TODO*/) {
        var position = findCircle1.apply(this);
        var x = Math.floor(position/DefaultConfig.rows);
        var y = (position%DefaultConfig.rows)+1;
+       if (x<1) 
+        console.log("Cannot move up");
+        else
        positionPiece.call(this,x,y);
     }
 
     function down(){
         var position = findCircle1.apply(this);
+        if ((position%DefaultConfig.rows)===0)
+        var x = Math.ceil(position/DefaultConfig.rows)+2;
+        else
        var x = Math.ceil(position/DefaultConfig.rows)+1;
+
        var y = (position%DefaultConfig.rows)+1;
+       if (x>DefaultConfig.rows) 
+        console.log("Cannot move down");
+       else
         positionPiece.call(this,x,y);
     }
     function left(){
         var position = findCircle1.apply(this);
        var x = Math.ceil(position/DefaultConfig.rows);
        var y = (position%DefaultConfig.rows);
+       if (y<1)
+        console.log("Cannot move left");
+       else
         positionPiece.call(this,x,y);
     }
     function right(){
         var position = findCircle1.apply(this);
        var x = Math.ceil(position/DefaultConfig.rows);
        var y = (position%DefaultConfig.rows)+2;
+       if (y> DefaultConfig.cols)
+        console.log("Cannot move right");
+       else
         positionPiece.call(this,x,y);
     }
 
@@ -140,37 +156,3 @@ board.init({
         colour: "#D32F2F"
       })
     });
-
-/*
-function test(){
-            var variable1 = 'one';
-        function go1(){
-
-            var variable2 = 'two';
-            var variable3 = 'three';
-
-            function go2(){
-                var variable4 = 'four';
-                console.log(variable1);
-                console.log(variable2);
-            }
-            function go3(){
-                var variable8 = "eight";
-                console.log(variable3);
-                go2()
-                go4()
-                function go4(){
-                    var variable5 = "five";
-                    go2()
-                }
-            }
-
-            go2()
-            go3()
-
-        }
-
-        go1()
-        go2()
-}
-*/
