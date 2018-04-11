@@ -84,6 +84,9 @@ var PlayBoarrd  = function (/*could take some base config as param TODO*/) {
     }
     function right(){
         var position = findCircle1.apply(this);
+        if ((position%DefaultConfig.rows)===0)
+            var x = Math.ceil(position/DefaultConfig.rows)+1;
+        else
        var x = Math.ceil(position/DefaultConfig.rows);
        var y = (position%DefaultConfig.rows)+2;
        if (y> DefaultConfig.cols)
