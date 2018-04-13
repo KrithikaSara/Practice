@@ -37,7 +37,7 @@ var PlayBoarrd  = function (/*could take some base config as param TODO*/) {
             parent.removeChild(findCircle);
         }  
         
-        this.config.container.childNodes[newPosition].appendChild(this.config.coin);
+        this.config.container.childNodes[newPosition].appendChild(this.config.coin.circleElement);
         
     } 
 
@@ -97,7 +97,7 @@ var PlayBoarrd  = function (/*could take some base config as param TODO*/) {
 
 
     function buildPiece(){
-        positionPiece.apply(this,DefaultConfig.coinPosition)
+        positionPiece.apply(this,this.config.coin.coinPosition)
     }
 
 
@@ -148,7 +148,9 @@ var Circle = function(param2) {
     circleElement.style.width = this.circleconfig.radius * 2;
     circleElement.style.borderRadius = "50%";
     circleElement.className= 'circle';
-    return circleElement;
+    return {
+        circleElement: circleElement,
+        coinPosition: this.circleconfig.coinPosition};
 }
 
 var board= new PlayBoarrd();
@@ -156,6 +158,7 @@ board.init({
     container: document.getElementsByClassName("mainBox")[0],
     coin: new Circle({
         radius: 20,
-        colour: "#D32F2F"
+        colour: "#D32F2F",
+        coinPosition: [4,4]
       })
     });
