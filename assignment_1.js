@@ -29,6 +29,9 @@ var PlayBoarrd  = function (/*could take some base config as param TODO*/) {
 
     function positionPiece(x,y){
 
+        if (x>DefaultConfig.rows || y>DefaultConfig.cols)
+        console.log(`The limit is [${DefaultConfig.rows},${DefaultConfig.cols}]`);
+        else{
         var newPosition = DefaultConfig.rows*(x-1)+y;
         var findCircle = this.config.container.getElementsByClassName("circle")[0];
         
@@ -38,7 +41,7 @@ var PlayBoarrd  = function (/*could take some base config as param TODO*/) {
         }  
         
         this.config.container.childNodes[newPosition].appendChild(this.config.coin.circleElement);
-        
+        }
     } 
 
 
@@ -159,6 +162,6 @@ board.init({
     coin: new Circle({
         radius: 20,
         colour: "#D32F2F",
-        coinPosition: [4,4]
+        coinPosition: [6,4]
       })
     });
