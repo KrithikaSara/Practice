@@ -7,7 +7,7 @@ var PlayBoarrd  = function (/*could take some base config as param TODO*/) {
     
     // local varible not accesses via 'this'
     var DefaultConfig = {
-        rows: 5,
+        rows: 15,
         cols: 5,
         coinPosition:[3,3],
         mainBoxHeight: null,
@@ -32,7 +32,7 @@ var PlayBoarrd  = function (/*could take some base config as param TODO*/) {
         if (x>DefaultConfig.rows || y>DefaultConfig.cols)
         console.log(`The limit is [${DefaultConfig.rows},${DefaultConfig.cols}]`);
         else{
-        var newPosition = DefaultConfig.rows*(x-1)+y;
+        var newPosition = DefaultConfig.cols*(x-1)+y;
         var findCircle = this.config.container.getElementsByClassName("circle")[0];
         
         if (findCircle){
@@ -49,53 +49,62 @@ var PlayBoarrd  = function (/*could take some base config as param TODO*/) {
         var findCircle = this.config.container.getElementsByClassName("circle")[0];
         var parent = findCircle.parentNode;
         var index = Array.prototype.indexOf.call(this.config.container.children, parent);
-        return index;
+        var x = Math.ceil((index+1)/DefaultConfig.cols);
+        var y = (index+1)%DefaultConfig.cols;
+        if(y===0)
+            y = x*DefaultConfig.cols;
+        return {
+            x:x,
+            y:y
+        };
     }
 
+
+    //args: null
+    //return: null
+    // calculates new position x1,y1 , calls positionPiece(x1,y1) and checks for up boundary conditions 
     function up(){
-
-       var position = findCircle1.apply(this);
-       var x = Math.floor(position/DefaultConfig.rows);
-       var y = (position%DefaultConfig.rows)+1;
-       if (x<1) 
-        console.log("Cannot move up");
-        else
-       positionPiece.call(this,x,y);
+        var oldPosition = findCircle1.apply(this);
+        var x1 = oldPosition.x-1;
+        var y1 = oldPosition.y;
+        if(x1>0)
+        positionPiece.call(this,x1,y1);
+       
     }
 
+    //args: null
+    //return: null
+    //calculates new position x1,y1 , calls positionPiece(x1,y1) and checks for down boundary conditions
     function down(){
-        var position = findCircle1.apply(this);
-        if ((position%DefaultConfig.rows)===0)
-        var x = Math.ceil(position/DefaultConfig.rows)+2;
-        else
-       var x = Math.ceil(position/DefaultConfig.rows)+1;
+        var oldPosition = findCircle1.apply(this);
+        var x1= oldPosition.x+1;
+        var y1= oldPosition.y;
+        if(x1<=DefaultConfig.rows)
+            positionPiece.call(this,x1,y1);
 
-       var y = (position%DefaultConfig.rows)+1;
-       if (x>DefaultConfig.rows) 
-        console.log("Cannot move down");
-       else
-        positionPiece.call(this,x,y);
+        
     }
+    //args: null
+    //return: null
+    // calculates new position x1,y1 ,calls positionPiece(x1,y1) and checks for left boundary conditions
     function left(){
-        var position = findCircle1.apply(this);
-       var x = Math.ceil(position/DefaultConfig.rows);
-       var y = (position%DefaultConfig.rows);
-       if (y<1)
-        console.log("Cannot move left");
-       else
-        positionPiece.call(this,x,y);
+        var oldPosition = findCircle1.apply(this);
+        var x1 = oldPosition.x;
+        var y1 = oldPosition.y-1;
+        if (y1>0)
+            positionPiece.call(this,x1,y1);
+       
     }
+
+    //args: null
+    // return : null
+    // calculates new position x1,y1 , calls positionPiece(x1,y1) and checks for right boundary conditions
     function right(){
-        var position = findCircle1.apply(this);
-        if ((position%DefaultConfig.rows)===0)
-            var x = Math.ceil(position/DefaultConfig.rows)+1;
-        else
-       var x = Math.ceil(position/DefaultConfig.rows);
-       var y = (position%DefaultConfig.rows)+2;
-       if (y> DefaultConfig.cols)
-        console.log("Cannot move right");
-       else
-        positionPiece.call(this,x,y);
+       var oldPosition = findCircle1.apply(this);
+       var x1 = oldPosition.x;
+       var y1 = oldPosition.y+1;
+       if(y1<=DefaultConfig.cols)
+        positionPiece.call(this,x1,y1);
     }
 
 
@@ -162,6 +171,6 @@ board.init({
     coin: new Circle({
         radius: 20,
         colour: "#D32F2F",
-        coinPosition: [6,4]
+        coinPosition: [2,4]
       })
     });
