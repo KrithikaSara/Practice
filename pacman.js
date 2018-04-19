@@ -1,36 +1,49 @@
+/*
+	return: null
+	args: colour,points,isLive,difficulty,config = {
+													hero,
+													ghost,
+													ghostCount,
+													difficulty
+															}
+	
+	functionality: constructs the entire game with environment, hero and ghost
+	*/
 
+function Board(config){
 
-function Board(){
-
- var DefaultConfig = { 
- 		hero,
-		ghost,
-		ghostCount,
-		difficulty
-
- }
-
+ 	/*
+	return: null
+	args: null
+	functionality: handles scores
+	*/
  function increasesPoints(){
 
  }
-
- // builds the wall randomly
+	/*
+	return: null
+	args: null
+	functionality: builds the wall randomly
+	*/ 
  function buildWall(){
 
  }
 
-	return {
-		start: start,
-		reset:reset	
-	}
 }
-
-// starts the game 
+	/*
+	return: null
+	args: null
+	functionality: starts the game
+	*/  
 Board.prototype.start = function(){
 
 }
-
-// when the game is over, resets the board and the score is also reset
+	/*
+	return: null
+	args: null
+	functionality: when the game is over, resets the board and the score is also reset
+	*/ 
+ 
 Board.prototype.reset = function(){
 
 }
@@ -40,23 +53,36 @@ return: null
 args: colour,speed
 functionality: constructs packman and moves the packman in all directions
 */
-function packman{
-	// moves the pacman up till direction is changed and stop if it  hits a wall or ghost
+function packman(){
+	/*
+	return : null
+	args: null
+	functionality: moves the pacman up till direction is changed and stop if it  hits a wall or ghost
+	 */
 	function up(){
 
 	}
-
-	// moves the pacman down till direction is changed and stop if it  hits a wall or ghost
+	/*
+	return : null
+	args: null
+	functionality: moves the pacman down till direction is changed and stop if it  hits a wall or ghost
+	*/
 	function down (){
 
 	}
-
-	// moves the pacman left till direction is changed and stop if it  hits a wall or ghost
+	/*
+	return : null
+	args: null
+	functionality: moves the pacman left till direction is changed and stop if it  hits a wall or ghost
+	*/
 	function left(){
 
 	}
-
-	// moves the pacman right till direction is changed and stop if it  hits a wall or ghost
+	/*
+	return : null
+	args: null
+	functionality: moves the pacman right till direction is changed and stop if it  hits a wall or ghost
+	*/
 	function right(){
 
 	}
