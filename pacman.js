@@ -1,16 +1,22 @@
 /*
 	return: null
-	args: colour,points,isLive,difficulty,config = {
-													hero,
-													ghost,
-													ghostCount,
-													difficulty
-															}
-	
+	args: config = {hero,
+			ghost,
+			ghostCount,
+			difficulty
+			}
+	variables: colour,points,isLive,difficulty
 	functionality: constructs the entire game with environment, hero and ghost
 	*/
 
 function Board(config){
+
+	var defaultConfig = { colour,
+			      points,
+			      isLive,
+			      difficulty
+
+	}
 
  	/*
 	return: null
@@ -53,7 +59,7 @@ return: null
 args: colour,speed
 functionality: constructs packman and moves the packman in all directions
 */
-function packman(){
+function Packman(){
 	/*
 	return : null
 	args: null
@@ -94,7 +100,7 @@ function packman(){
  args: colour, speed
  functionality: constructs the ghost and calls the moveRandom()
 */
-function ghost(){
+function Ghost(){
 
 	// moves the ghost randomly
 	function moveRandom(){
@@ -102,3 +108,9 @@ function ghost(){
 	}
 }
 
+var test = new Board({
+						hero,
+						ghost: new Ghost();,
+						ghostCount,
+						difficulty
+});
