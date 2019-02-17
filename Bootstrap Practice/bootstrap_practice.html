@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" type="text/css" href="./bootstrap-4.2.1-dist/css/bootstrap.css">
+	<script type="text/javascript" src="./bootstrap-4.2.1-dist/js/bootstrap.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('#btnsubmit').click(function(){
+			$('successAlert').show('fade')
+		});
+	});
+	</script>
+	<title>Bootstrap Components</title>
+</head>
+<body>
+<button id="btnsubmit" class="btn btn-success">Click Me!!!</button>
+<br /><br />
+<div id="successAlert" class="alert alert-success collapse">
+	<a href="#" class="close" data-dismiss="alert">&times;</a>
+	<strong>Success...</strong> You have finally accomplished the mission :)
+</div>
+</body>
+</html>
