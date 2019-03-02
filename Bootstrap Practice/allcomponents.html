@@ -87,7 +87,8 @@
 			</div>
 		</div>
 	</div>
-	<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+	<button type="button" class="btn btn-md btn-primary" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
+	<div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false">
 		<div class="toast-header">
 		  <img src="..." class="rounded mr-2" alt="...">
 		  <strong class="mr-auto">Bootstrap</strong>
@@ -105,9 +106,14 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
 	 crossorigin="anonymous"></script>
 	<script type="text/javascript" src="./bootstrap-4.2.1-dist/js/bootstrap.js"></script>
-	<!-- <script type="text/javascript">
-	$(".toast").toast('show')
-	</script> -->
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.toast').toast('show')
+		})
+	</script>
+	<script type="text/javascript">
+			$('[data-toggle="popover"]').popover()	
+	</script>
 </body>
 
 </html>
