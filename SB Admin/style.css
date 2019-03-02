@@ -1,0 +1,20 @@
+body {
+    display: flex;
+}
+
+main {
+    width: 100%;
+}
+
+.contents {
+    padding: 10px 0;
+}
+
+.mainContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cardWrapper>div {
+    margin-top: 10px;
+}
