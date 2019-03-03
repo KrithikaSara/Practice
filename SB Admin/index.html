@@ -10,11 +10,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossorigin="anonymous">
 
-    <title>SB Admin Template</title>
+    <title>SB Admin Dashboard</title>
 </head>
 
 <body>
-    <aside>
+    <div class="wrapper">
+        <h2>Dashboard header</h2>
         <ul>
             <li>Dashboard</li>
             <li>Interface</li>
@@ -25,14 +26,9 @@
             <li>Charts</li>
             <li>Tables</li>
         </ul>
-    </aside>
+    </div>
     <main>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <!-- <a class="navbar-brand" href="#">Navbar</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon"></span>
-                    </button> -->
-
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -67,35 +63,87 @@
 
             </div>
         </nav>
-        <div id="dashboards">
-        <h2>Dashboard</h2>
-        <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+        <div class="dashboard">
+            <h2>Dashboard</h2>
+            <div class="dashboardwrapper">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-header">
+                        Featured
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-header">
+                        Featured
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-header">
+                        Featured
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-header">
+                        Featured
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+        <div class="graphs">
+            <div class="card">
+                <h5 class="card-header">Featured</h5>
+                <div class="card-body">
+                    <img src="./graph2.png" />
+                </div>
             </div>
-        </div>
-    </div>
-    <div id="graphs">
-        <div></div>
-        <div></div>
-    </div>
-    <div id="others">
-      <div></div>
-      <div></div>
-    </div>
+            <div class="card">
+                <h5 class="card-header">Featured</h5>
+                <div class="card-body">
+                    <img src="./Graph1.png" />
+                </div>
+            </div>
 
+
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card">
+                    <h5 class="card-header">Featured</h5>
+                    <div class="card-body">
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+                    </div>
+                </div>
+                <div class="divWrapper">
+                    <div>Primary</div>
+                    <div>Secondary</div>
+                    <div>Info</div>
+                    <div>Warning</div>
+                    <div>Danger</div>
+                    <div>Success</div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+            <div class="card">
+                <h5 class="card-header">Featured</h5>
+                <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+            <div class="card">
+                <h5 class="card-header">Featured</h5>
+                <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+        </div>
     </main>
+
 
 
     <!-- Optional JavaScript -->
